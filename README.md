@@ -1,4 +1,3 @@
-# power-outage-analysis
-DSC 80 Project at the University of California: San Diego
+# Zubin Sannakkayala and Atherv Vidhate
 
-this is a test
+Work will be added shortly
