@@ -27,6 +27,7 @@ In this plot we are looking at the distribution of the probability of outage dur
 In this plot we see the breakdown of the distribution of outages by NERC Region. The NERC Region is the North American Electric Reliability Corporation region involved in the outage event. The NERC Region with the highest amount of outages is WECC and RFC, which both have over 400 incidents.
 
 ### All NERC Regions and Their Outage Counts
+
 | Acronym       | Full Name                                    | Count |
 |---------------|---------------------------------------------|-------|
 | WECC          | Western Electricity Coordinating Council    | 451   |
