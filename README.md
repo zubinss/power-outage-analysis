@@ -92,3 +92,34 @@ We performed a permutation Test with 10,000 iterations at the 0.05 significance 
 **P-value**: 0.0068. With our 0.05 significance level, we reject the null hypothesis. We have enough evidence to justify that the difference in people affected during the nighttime and daytime was statistically significant, and not solely due to random chance.
 
 
+---
+
+
+# Framing a Prediction Problem
+
+To answer our question, we want to create a model that predicts whether or not a power outage will exceed a certain severity threshold – in this case, a day, or 1,440 minutes. We will construct this model as a binary classification problem, where outages will be predicted as “severe” (1) or “not severe” (0). 
+
+For our model, our response variable is the ~OUTAGE.DURATION~ column, which is the difference between time of restoration and time of start, in minutes. The metric we are using to measure the success of our model is accuracy. 
+
+
+---
+
+
+# Baseline Model
+
+
+---
+
+
+# Final Model
+
+
+---
+
+
+# Fairness Analysis
+
+
+
+
+
