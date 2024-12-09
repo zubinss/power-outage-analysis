@@ -1,4 +1,4 @@
-# Zubin Sannakkayala and Atherv Vidhate
+# Introduction
 
 # Data Cleaning and Exploratory Data Analysis
 
