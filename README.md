@@ -47,9 +47,17 @@ In this plot we see the breakdown of the distribution of outages by NERC Region.
 
 ## Bivariate Analysis
 
+(insert scatter plot here)
+
+Here we can see the outage duration vs the number of customers affected by the outage. Most of the points are bunched in the lower left hand corner of the plot. Most outages don’t end up affecting more than 0.5M people and don’t last for more than around 15,000 minutes (~10 days). However, there are outliers, which although don’t last for a very large amount of time, affect millions of people. These are the larger hurricanes and storms that come through and rip up local power grids.
+
+
 
 ## Interesting Aggregates
 
+(insert pivot table here)
+
+Here we are seeing a pivot table of the average length of outages split across whether the part of the day was morning, afternoon, evening, or night. We can see that the longest durations are on average during the morning and very closely after at night. If we were to look at these by whether or not it is daytime or nighttime, we get that daytime is ~4981.26 minutes long on average and nighttime is ~5772.05 minutes long on average. Although on their own morning and night are the two longest, if we look at daytime and nighttime, nighttime has a much longer average duration. This may be due to power going out at night when many people are using it and overloading the grid. 
 
 ---
 
