@@ -13,6 +13,15 @@ We then removed a row in the dataset showing the units of each of the columns so
 
 We converted important date and time columns into `pd.Timestamp` objects. These columns were `OUTAGE.START.DATE`, `OUTAGE.START.TIME`, `OUTAGE.RESTORATION.DATE`, and `OUTAGE.RESTORATION.TIME`. To make it easier to work all in one with these data columns, we also combined these 4 columns into 2 columns, `OUTAGE.START` and `OUTAGE.RESTORATION`, respectively.
 
+In addition, we created the `is_day` and `Daypart` columns. `is_day` is a boolean variable that is True if the outage took place between 8 am and 8 pm, and False if it is between 8 pm and 8 am. `Daypart` categorizes the hour of day that the outage took place based on the table below:
+
+| Daypart       | Hours                 |
+|---------------|-----------------------|
+| Morning       | 5:00 am - 11:59 am    | 
+| Afternoon     | 12:00 pm - 4:59 pm    | 
+| Evening       | 5:00 pm - 8:59 pm     | 
+| Night         | 9:00 pm - 4:59 am     | 
+
 ---
 
 ## Univariate Analysis
@@ -194,6 +203,7 @@ To answer our question, we want to create a model that predicts whether or not a
 
 For our model, our response variable is the `OUTAGE.DURATION` column, which is the difference between time of restoration and time of start, in minutes. The metric we are using to measure the success of our model is accuracy. 
 
+When building our model, it was important to take into consideration what variables we would know prior to the time of a hypothetical power outage, or the model wouldn't necessarily be helpful from a logistical standpoint.
 
 ---
 
@@ -202,8 +212,13 @@ For our model, our response variable is the `OUTAGE.DURATION` column, which is t
 
 Our baseline model is a binary classifier that consists of the features `NERC.REGION`, `PC.REALGSP.STATE`, and `PCT_WATER_TOT`. We used a random forest and used GridSearchCV to help identify the best parameters, which were a `max_depth` of 8, `min_samples_split` of 15, and `n_estimators` of 100. The predicted column consisted of 1s if the predicted outage would be severe, and 0 if the predicted outage would not be severe. Initially, we used a DecisionTreeClassifier but realized that it would not be as successful as a RandomForestClassifier. 
 
-Our initial model had an R^2 of 0.76 on the training set and **0.73** on the test set. 
+`NERC.REGION`indicates the North American Electric Reliability Corporation regions involved in the outage event, which we thought would be useful due to different regions having different implementations of energy infrastructures. We one-hot encoded this column, which had 8 unique values in it.
 
+`PC.REALGSP.STATE`identifies per capita real gross state product (GSP) in the U.S. state the outage took place in. Higher values may correspond to larger investments into energy infrastructure and protection against intentional power outage attacks.
+
+`PCT_WATER_TOT`states the percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. Higher values may equate to increased hydropower availability.
+
+Our initial model had an R<sup>2</sup> of 0.76 on the training set and **0.73** on the test set. 
 
 
 ---
