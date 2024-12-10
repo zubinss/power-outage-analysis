@@ -107,6 +107,11 @@ For our model, our response variable is the `OUTAGE.DURATION` column, which is t
 
 # Baseline Model
 
+Our baseline model is a binary classifier that consists of the features `NERC.REGION`, `PC.REALGSP.STATE`, and `PCT_WATER_TOT`. We used a random forest and used GridSearchCV to help identify the best parameters, which were a `max_depth` of 8, `min_samples_split` of 15, and `n_estimators` of 100. The predicted column consisted of 1s if the predicted outage would be severe, and 0 if the predicted outage would not be severe. Initially, we used a DecisionTreeClassifier but realized that it would not be as successful as a RandomForestClassifier. 
+
+Our initial model had an R^2 of 0.76 on the training set and **0.73** on the test set. 
+
+
 
 ---
 
