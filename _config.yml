@@ -4,3 +4,7 @@ plugins:
 
 title: [Illuminating the Dark -- An In-Depth Analysis of Power Outage Data]
 description: [DSC 80 Final Project at the University of California San Diego by Zubin Sannakkayala and Atherv Vidhate]
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    disable_sanitization: true
