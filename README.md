@@ -74,6 +74,51 @@ If we had data on the amount of media coverage the outage got, we may be able to
 
 ## Missingness Dependency
 
+We will looking into and analyzing the `OUTAGE.DURATION` column
+
+### 1. Missingness Dependency on Climate Regions.
+Null Hypothesis: The missingness of the amount of customers affected is the same across all climate regions.
+
+Alternative Hypothesis: The missingness of the amount of customers affected differs across the different climate regions.
+
+
+| Climate Region       | Is NA    | Not NA   |
+|-----------------------|----------|----------|
+| Central              | 0.097065 | 0.144700 |
+| East North Central   | 0.045147 | 0.108756 |
+| Northeast            | 0.189616 | 0.245161 |
+| Northwest            | 0.158014 | 0.057143 |
+| South                | 0.167043 | 0.142857 |
+| Southeast            | 0.022573 | 0.131797 |
+| Southwest            | 0.106095 | 0.041475 |
+| West                 | 0.191874 | 0.121659 |
+| West North Central   | 0.022573 | 0.006452 |
+
+
+(insert 1st bar chart here)
+
+There seems to be a noticeable difference between categories and missingness. We perform a permutation test to check for missingness dependency. We have a significance level of `p=0.05`. We will use total variation distance (TVD) as our test statistic, as we are dealing with categorical data points.
+
+(insert 1st permutation graph)
+
+During testing, we found an observed test statistic of `0.28`, which has a p-value of `0.0`. It is far beyond the distribution of climate regions, showing that we reject the null hypothesis. We conclude that there is evidence to suggest that the missingness of missingness of customer amounts differs across climate regions. 
+
+### 2. Missingness Dependency on the Part of Day
+
+We now look to see if the missingness of the customers affected is dependent on the part of the day. The parts of the day we are splitting the data up into is Morning, Afternoon, Evening, and Night.
+
+Null Hypothesis: The missingness of the amount of customers affected is the same across all parts of the day.
+
+Alternative Hypothesis: The missingness of the amount of customers affected differs across the different parts of the day.
+
+(insert second bar chart here)
+
+We can see here that the distributions of missingness seem much more even based on the parts of day that the climate regions. We can run another permutation test to statistically quantify whether or not the differences are significant or not. We will use the TVD again as our test statistic.
+
+(insert 2nd permutation graph)
+
+In our testing, we find now that there is an observed test statistic of `0.18`, which has a p-value of `0.272`. This p-value is not lower than our significance level of `0.05`, so we fail to reject the null hypothesis. We do not have enough evidence to conclude that there is a relationship between the dependency of the missiningness of the amount of customers affected and the part of the day.
+
 
 ---
 
