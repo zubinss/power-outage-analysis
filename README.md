@@ -17,7 +17,14 @@ We converted important date and time columns into `pd.Timestamp` objects. These 
 
 ## Univariate Analysis
 
-(insert histogram plot here)
+
+<iframe
+  src="assets/output.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
+
 
 In this plot we are looking at the distribution of the probability of outage durations over time. We can see how most outages don't last that long, as they are in the \[0-999\] minutes bin. Over 50% of the durations are in that bin, but interestingly there are outages that last for a very long time. The longest outage had an duration of over 108,000 minutes. This means the outage lasted for 75+ days!
 
