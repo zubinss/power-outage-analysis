@@ -1,5 +1,17 @@
 # Introduction
 
+This dataset was accessed from Purdue University’s Laboratory for Advancing Sustainable Critical Infrastructure, at https://engineering.purdue.edu/LASCI/research-data/outages. The dataset examines statistics about major power outages in the United States from January 2000 to July 2016. 
+
+Power outages are a significant issue affecting communities worldwide. While brief outages may cause mild inconveniences, outages that last over 24 hours can lead to negative impacts on families and their daily lives. Outages of this length lead to various disruptions such as loss of refrigeration, resulting in additional financial burdens, as well as complicate job logistics, especially for those working from home or relying on electronic devices and internet access. Small businesses can easily lose revenue, and potential damage to reputation if services are interrupted. Beyond the immediate effects, prolonged outages can strain local economies, increase insurance claims, and amplify recovery costs for utility providers.
+
+Understanding whether a power outage is likely to become severe is crucial for effective preparation, and having access to predictive insights can enable families to make timely decisions, such as securing backup power sources or temporary relocation. This drives us to center our data analysis around the following question:
+
+**What patterns can be identified in the timing and duration of severe power outages?**
+
+The original DataFrame contains 1534 rows, corresponding to 1534 outages, and 57 columns with statistics about each outage. For the sake of our analysis, we will only use the following ___ columns in our analysis:
+
+
+
 # Data Cleaning and Exploratory Data Analysis
 
 ## Data Cleaning
@@ -168,7 +180,7 @@ We can see here that the distributions of missingness seem much more even based 
   frameborder="0"
 ></iframe>
 
-In our testing, we find now that there is an observed test statistic of `0.18`, which has a p-value of `0.272`. This p-value is not lower than our significance level of `0.05`, so we fail to reject the null hypothesis. We do not have enough evidence to conclude that there is a relationship between the dependency of the missiningness of the amount of customers affected and the part of the day.
+In our testing, we find now that there is an observed test statistic of `0.18`, which has a p-value of `0.272`. This p-value is not lower than our significance level of `0.05`, so we fail to reject the null hypothesis. We do not have enough evidence to conclude that there is a relationship between the dependency of the missingness of the amount of customers affected and the part of the day.
 
 
 ---
