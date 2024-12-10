@@ -17,7 +17,6 @@ We converted important date and time columns into `pd.Timestamp` objects. These 
 
 ## Univariate Analysis
 
-
 <iframe
   src="assets/output.html"
   width="800"
@@ -25,11 +24,15 @@ We converted important date and time columns into `pd.Timestamp` objects. These 
   frameborder="0"
 ></iframe>
 
-
 In this plot we are looking at the distribution of the probability of outage durations over time. We can see how most outages don't last that long, as they are in the \[0-999\] minutes bin. Over 50% of the durations are in that bin, but interestingly there are outages that last for a very long time. The longest outage had an duration of over 108,000 minutes. This means the outage lasted for 75+ days!
 
 
-(insert pie chart here)
+<iframe
+  src="assets/pie_nerc.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 In this plot we see the breakdown of the distribution of outages by NERC Region. The NERC Region is the North American Electric Reliability Corporation region involved in the outage event. The NERC Region with the highest amount of outages is WECC and RFC, which both have over 400 incidents.
 
@@ -55,7 +58,12 @@ In this plot we see the breakdown of the distribution of outages by NERC Region.
 
 ## Bivariate Analysis
 
-(insert scatter plot here)
+<iframe
+  src="assets/scatter_duration_customers.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 Here we can see the outage duration vs the number of customers affected by the outage. Most of the points are bunched in the lower left hand corner of the plot. Most outages don’t end up affecting more than 0.5M people and don’t last for more than around 15,000 minutes (~10 days). However, there are outliers, which although don’t last for a very large amount of time, affect millions of people. These are the larger hurricanes and storms that come through and rip up local power grids.
 
@@ -102,11 +110,21 @@ Alternative Hypothesis: The missingness of the amount of customers affected diff
 | West North Central   | 0.022573 | 0.006452 |
 
 
-(insert 1st bar chart here)
+<iframe
+  src="assets/bar_climate_customer_missing.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 There seems to be a noticeable difference between categories and missingness. We perform a permutation test to check for missingness dependency. We have a significance level of `p=0.05`. We will use total variation distance (TVD) as our test statistic, as we are dealing with categorical data points.
 
-(insert 1st permutation graph)
+<iframe
+  src="assets/hist_climate_perm.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 During testing, we found an observed test statistic of `0.28`, which has a p-value of `0.0`. It is far beyond the distribution of climate regions, showing that we reject the null hypothesis. We conclude that there is evidence to suggest that the missingness of missingness of customer amounts differs across climate regions. 
 
@@ -118,11 +136,21 @@ Null Hypothesis: The missingness of the amount of customers affected is the same
 
 Alternative Hypothesis: The missingness of the amount of customers affected differs across the different parts of the day.
 
-(insert second bar chart here)
+<iframe
+  src="assets/bar_daypart_customer_missing.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 We can see here that the distributions of missingness seem much more even based on the parts of day that the climate regions. We can run another permutation test to statistically quantify whether or not the differences are significant or not. We will use the TVD again as our test statistic.
 
-(insert 2nd permutation graph)
+<iframe
+  src="assets/hist_daypart_perm.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 In our testing, we find now that there is an observed test statistic of `0.18`, which has a p-value of `0.272`. This p-value is not lower than our significance level of `0.05`, so we fail to reject the null hypothesis. We do not have enough evidence to conclude that there is a relationship between the dependency of the missiningness of the amount of customers affected and the part of the day.
 
@@ -140,6 +168,12 @@ In our testing, we find now that there is an observed test statistic of `0.18`, 
 
 We performed a permutation Test with 10,000 iterations at the 0.05 significance level to generate an empirical distribution of the test statistic, as shown below:
 
+<iframe
+  src="assets/hist_hypo.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 **P-value**: 0.0068. With our 0.05 significance level, we reject the null hypothesis. We have enough evidence to justify that the difference in people affected during the nighttime and daytime was statistically significant, and not solely due to random chance.
 
