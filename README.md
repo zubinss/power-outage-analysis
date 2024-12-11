@@ -1,10 +1,6 @@
 # Introduction
 
-This dataset was accessed from Purdue University’s Laboratory for Advancing Sustainable Critical Infrastructure, at https://engineering.purdue.edu/LASCI/research-data/outages. The dataset examines statistics about major power outages in the United States from January 2000 to July 2016. 
-
-Power outages are a significant issue affecting communities worldwide. While brief outages may cause mild inconveniences, outages that last over 24 hours can lead to negative impacts on families and their daily lives. Outages of this length lead to various disruptions such as loss of refrigeration, resulting in additional financial burdens, as well as complicate job logistics, especially for those working from home or relying on electronic devices and internet access. Small businesses can easily lose revenue, and potential damage to reputation if services are interrupted. Beyond the immediate effects, prolonged outages can strain local economies, increase insuran# Introduction
-
-This dataset was accessed from Purdue University’s Laboratory for Advancing Sustainable Critical Infrastructure, at https://engineering.purdue.edu/LASCI/research-data/outages. The dataset examines statistics about major power outages in the United States from January 2000 to July 2016. 
+This dataset was accessed from Purdue University’s Laboratory for Advancing Sustainable Critical Infrastructure, at [https://engineering.purdue.edu/LASCI/research-data/outages](https://engineering.purdue.edu/LASCI/research-data/outages). The dataset examines statistics about major power outages in the United States from January 2000 to July 2016. 
 
 Power outages are a significant issue affecting communities worldwide. While brief outages may cause mild inconveniences, outages that last over 24 hours can lead to negative impacts on families and their daily lives. Outages of this length lead to various disruptions such as loss of refrigeration, resulting in additional financial burdens, as well as complicate job logistics, especially for those working from home or relying on electronic devices and internet access. Small businesses can easily lose revenue, and potential damage to reputation if services are interrupted. Beyond the immediate effects, prolonged outages can strain local economies, increase insurance claims, and amplify recovery costs for utility providers.
 
