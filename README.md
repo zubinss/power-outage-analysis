@@ -75,6 +75,8 @@ Below is the head of our filtered table of data that we used for the rest of thi
 
 
 
+
+
 ## Univariate Analysis
 
 <iframe
@@ -95,6 +97,8 @@ In this plot we are looking at the distribution of the probability of outage dur
 ></iframe>
 
 In this plot we see the breakdown of the distribution of outages by NERC Region. The NERC Region is the North American Electric Reliability Corporation region involved in the outage event. The NERC Region with the highest amount of outages is WECC and RFC, which both have over 400 incidents.
+
+
 
 
 
@@ -119,6 +123,8 @@ In this plot we see the breakdown of the distribution of outages by NERC Region.
 
 
 
+
+
 ## Bivariate Analysis
 
 <iframe
@@ -129,6 +135,8 @@ In this plot we see the breakdown of the distribution of outages by NERC Region.
 ></iframe>
 
 Here we can see the outage duration vs the number of customers affected by the outage. Most of the points are bunched in the lower left hand corner of the plot. Most outages don’t end up affecting more than 0.5M people and don’t last for more than around 15,000 minutes (~10 days). However, there are outliers, which although don’t last for a very large amount of time, affect millions of people. These are the larger hurricanes and storms that come through and rip up local power grids.
+
+
 
 
 
@@ -167,6 +175,8 @@ If we had data on the amount of media coverage the outage got, we may be able to
 We will looking into and analyzing the `OUTAGE.DURATION` column
 
 
+
+
 ### 1. Missingness Dependency on Climate Regions.
 Null Hypothesis: The missingness of the amount of customers affected is the same across all climate regions.
 
@@ -203,6 +213,8 @@ There seems to be a noticeable difference between categories and missingness. We
 ></iframe>
 
 During testing, we found an observed test statistic of `0.28`, which has a p-value of `0.0`. It is far beyond the distribution of climate regions, showing that we reject the null hypothesis. We conclude that there is evidence to suggest that the missingness of missingness of customer amounts differs across climate regions. 
+
+
 
 
 ### 2. Missingness Dependency on the Part of Day
@@ -320,6 +332,7 @@ Our final model had an R<sup>2</sup> of 0.89 on the training set and **0.78** on
 Our groups for the fairness analysis are populations that are less than 9,000,000 people and greater than or equal to 9,000,000 people. We did this because our model relies on the PC.REAL.GSP column, which has a positive relationship with the population of the state itself. We want to make sure that the model is effective in recognizing severe outages in both states with high populations and low populations.
 When determining an evaluation metric, we decided on recall, because when considering the real-life effects of using this model, false negatives are the least ideal scenario– when a business or family is not prepared for an extended outage and as a result reap the consequences. 
 We will conduct a permutation test with a significance level of 0.05, using absolute difference of means as our test statistic on the test data we used for our final model with the following hypotheses:
+
 
 
 **Null Hypothesis**: 
