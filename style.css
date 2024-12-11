@@ -1,0 +1,16 @@
+.table-container {
+  overflow-x: auto; /* Enables horizontal scrolling */
+  white-space: nowrap; /* Prevents wrapping of table content */
+  margin-bottom: 20px; /* Adds space below the table */
+}
+
+.table-container table {
+  width: 100%; /* Ensures the table stretches fully inside the container */
+  border-collapse: collapse; /* Optional: Ensures a clean table look */
+}
+
+.table-container th,
+.table-container td {
+  text-align: left;
+  padding: 8px;
+}
