@@ -333,12 +333,14 @@ Our final model’s recall is not the same for populations with less than 9,000,
 The figure below shows the result of our permutation test with 100,000 simulations:
 
 
-<iframe
-  src="assets/fig_final.html"
-  width="800"
-  height="600"
-  frameborder="0"
-></iframe>
+<div class="plot-container">
+  <iframe
+    src="assets/fig_final.html"
+    width="800"
+    height="600"
+    frameborder="0"
+  ></iframe>
+</div>
 
 
 **P-value**: 0.4381
