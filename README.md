@@ -291,11 +291,11 @@ When building our model, it was important to take into consideration what variab
 
 Our baseline model is a binary classifier using a **RandomForest** that consists of the features `NERC.REGION`, `PC.REALGSP.STATE`, and `PCT_WATER_TOT`. We used a random forest and used GridSearchCV to help identify the best parameters, which were a `max_depth` of 8, `min_samples_split` of 15, and `n_estimators` of 100. The predicted column consisted of 1s if the predicted outage would be severe, and 0 if the predicted outage would not be severe. Initially, we used a DecisionTreeClassifier but realized that it would not be as successful as a RandomForestClassifier. 
 
-`NERC.REGION`indicates the North American Electric Reliability Corporation regions involved in the outage event, which we thought would be useful due to different regions having different implementations of energy infrastructures. We one-hot encoded this column, which had 8 unique values in it.
+`NERC.REGION` indicates the North American Electric Reliability Corporation regions involved in the outage event, which we thought would be useful due to different regions having different implementations of energy infrastructures. We one-hot encoded this column, which had 8 unique values in it.
 
-`PC.REALGSP.STATE`identifies per capita real gross state product (GSP) in the U.S. state the outage took place in. Higher values may correspond to larger investments into energy infrastructure and protection against intentional power outage attacks.
+`PC.REALGSP.STATE` identifies per capita real gross state product (GSP) in the U.S. state the outage took place in. Higher values may correspond to larger investments into energy infrastructure and protection against intentional power outage attacks.
 
-`PCT_WATER_TOT`states the percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. Higher values may equate to increased hydropower availability.
+`PCT_WATER_TOT` states the percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. Higher values may equate to increased hydropower availability.
 
 Our initial model had an R<sup>2</sup> of 0.76 on the training set and **0.73** on the test set. 
 
@@ -309,7 +309,7 @@ Our initial model had an R<sup>2</sup> of 0.76 on the training set and **0.73** 
 
 Our final model still used a **RandomForest** with a few more added features, whilst removing the `PCT_WATER_TOT` column:
 
-`Daypart`states the time of day based on the table in the Data Cleaning section. Outages that happen at night or evening may take longer to fix due to smaller number of people taking action against power outages.
+`Daypart` states the time of day based on the table in the Data Cleaning section. Outages that happen at night or evening may take longer to fix due to smaller number of people taking action against power outages.
 
 `ANOMALY.LEVEL` represents the oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season, which may impact the duration of a power outage due to extreme weather tendencies. 
 
