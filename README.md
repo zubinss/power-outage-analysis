@@ -63,6 +63,7 @@ There are a lot of columns in the dataset. To get only the ones necessary for ou
 
 Below is the head of our filtered table of data that we used for the rest of this project:
 
+<div class="table-container">
 
 | U.S._STATE   | NERC.REGION   | CLIMATE.REGION     |   ANOMALY.LEVEL | OUTAGE.START        | OUTAGE.RESTORATION   |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |   PC.REALGSP.STATE |   PCT_WATER_TOT | CLIMATE.CATEGORY   |   DEMAND.LOSS.MW |   Hour | Daypart   | is_day   |   is_severe |   POPULATION |
 |:-------------|:--------------|:-------------------|----------------:|:--------------------|:---------------------|------------------:|---------------------:|-------------------:|----------------:|:-------------------|-----------------:|-------:|:----------|:---------|------------:|-------------:|
@@ -72,7 +73,7 @@ Below is the head of our filtered table of data that we used for the rest of thi
 | Minnesota    | MRO           | East North Central |            -0.1 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 |                68200 |              51598 |         8.40733 | normal             |              nan |      4 | Night     | False    |           1 |      5380443 |
 | Minnesota    | MRO           | East North Central |             1.2 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |               250000 |              54431 |         8.40733 | warm               |              250 |      2 | Night     | False    |           1 |      5489594 |
 
-
+</div>
 
 
 
