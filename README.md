@@ -36,11 +36,11 @@ The original DataFrame contains 1534 rows, corresponding to 1534 outages, and 57
 | is_day                | Whether or not the outage took place during the day                    |
 | is_severe             | Whether or not the outage is severe (defined by if the outage lasted for more than 24 hours)                    |
 
-
+<br>
 
 ---
 
-
+<br>
 
 # Data Cleaning and Exploratory Data Analysis
 
@@ -165,11 +165,11 @@ Here we can see the outage duration vs the number of customers affected by the o
 
 Here we are seeing a pivot table of the average length of outages split across whether the part of the day was morning, afternoon, evening, or night. We can see that the longest durations are on average during the morning and very closely after at night. If we were to look at these by whether or not it is daytime or nighttime, we get that daytime is ~4981.26 minutes long on average and nighttime is ~5772.05 minutes long on average. Although on their own morning and night are the two longest, if we look at daytime and nighttime, nighttime has a much longer average duration. This may be due to power going out at night when many people are using it and overloading the grid. 
 
-
+<br>
 
 ---
 
-
+<br>
 
 # Assessment of Missingness
 
@@ -257,10 +257,11 @@ We can see here that the distributions of missingness seem much more even based 
 
 In our testing, we find now that there is an observed test statistic of `0.18`, which has a p-value of `0.272`. This p-value is not lower than our significance level of `0.05`, so we fail to reject the null hypothesis. We do not have enough evidence to conclude that there is a relationship between the dependency of the missingness of the amount of customers affected and the part of the day.
 
-
+<br>
 
 ---
 
+<br>
 
 # Hypothesis Testing
 
@@ -281,11 +282,11 @@ We performed a permutation Test with 10,000 iterations at the 0.05 significance 
 
 **P-value**: 0.0068. With our 0.05 significance level, we reject the null hypothesis. We have enough evidence to justify that the difference in people affected during the nighttime and daytime was statistically significant, and not solely due to random chance.
 
-
+<br>
 
 ---
 
-
+<br>
 
 # Framing a Prediction Problem
 
@@ -295,11 +296,11 @@ For our model, our response variable is the `OUTAGE.DURATION` column, which is t
 
 When building our model, it was important to take into consideration what variables we would know prior to the time of a hypothetical power outage, or the model wouldn't necessarily be helpful from a logistical standpoint.
 
-
+<br>
 
 ---
 
-
+<br>
 
 # Baseline Model
 
@@ -313,11 +314,11 @@ Our baseline model is a binary classifier using a **RandomForest** that consists
 
 Our initial model had an R<sup>2</sup> of 0.76 on the training set and **0.73** on the test set. 
 
-
+<br>
 
 ---
 
-
+<br>
 
 # Final Model
 
@@ -335,11 +336,11 @@ Our hyperparamters for the final model using GridSearchCV were a `max_depth` of 
 
 Our final model had an R<sup>2</sup> of 0.89 on the training set and **0.78** on the test set, which was a 5% increase from our baseline model. 
 
-
+<br>
 
 ---
 
-
+<br>
 
 # Fairness Analysis
 
@@ -373,4 +374,4 @@ The figure below shows the result of our permutation test with 100,000 simulatio
 
 We fail to reject the null hypothesis. We do not have conclusive evidence that our final model’s recall is not the same for populations with less than 9,000,000 people and populations with greater than 9,000,000 people.
 
-
+<br>
