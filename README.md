@@ -338,7 +338,7 @@ Our final model had an R<sup>2</sup> of 0.89 on the training set and **0.78** on
 
 # Fairness Analysis
 
-Our groups for the fairness analysis are populations that are less than 9,000,000 people and greater than or equal to 9,000,000 people. We did this because our model relies on the PC.REAL.GSP column, which has a positive relationship with the population of the state itself. We want to make sure that the model is effective in recognizing severe outages in both states with high populations and low populations.
+Our groups for the fairness analysis are populations that are less than 9,000,000 people and greater than or equal to 9,000,000 people. We did this because our model relies on the `PC.REAL.GSP` column, which has a positive relationship with the population of the state itself. We want to make sure that the model is effective in recognizing severe outages in both states with high populations and low populations.
 When determining an evaluation metric, we decided on recall, because when considering the real-life effects of using this model, false negatives are the least ideal scenario– when a business or family is not prepared for an extended outage and as a result reap the consequences. 
 We will conduct a permutation test with a significance level of 0.05, using absolute difference of means as our test statistic on the test data we used for our final model with the following hypotheses:
 
@@ -352,7 +352,7 @@ Our final model’s recall is the same for populations with less than 9,000,000 
 Our final model’s recall is not the same for populations with less than 9,000,000 people and populations with greater than 9,000,000 people.
 
 
-The figure below shows the result of our permutation test with 100,000 simulations:
+The figure below shows the result of our permutation test with 10,000 simulations:
 
 
 <iframe
