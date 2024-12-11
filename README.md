@@ -274,6 +274,8 @@ We performed a permutation Test with 10,000 iterations at the 0.05 significance 
 
 **P-value**: 0.0068. With our 0.05 significance level, we reject the null hypothesis. We have enough evidence to justify that the difference in people affected during the nighttime and daytime was statistically significant, and not solely due to random chance.
 
+This test is relevant to our initial question because it provides some insight as to whether or not the time of day as an impact on the number of people affected. Rejecting the null in this instance tells us that one of the features we encoded will likely be useful for the model we build to help further investigate our question.
+
 <br>
 
 ---
@@ -284,7 +286,7 @@ We performed a permutation Test with 10,000 iterations at the 0.05 significance 
 
 To answer our question, we want to create a model that predicts whether or not a power outage will exceed a certain severity threshold – in this case, a day, or 1,440 minutes. We will construct this model as a binary classification problem, where outages will be predicted as “severe” (1) or “not severe” (0). 
 
-For our model, our response variable is the `OUTAGE.DURATION` column, which is the difference between time of restoration and time of start, in minutes. The metric we are using to measure the success of our model is accuracy. 
+For our model, our response variable is the `is_severe` column, which is a boolean variable that determines whether the difference between time of restoration and time of start is greater than a day. We chose this column because like we mentioned in our introduction, being able to anticipate severe outages can be very helpful. The metric we are using to measure the success of our model is accuracy. 
 
 When building our model, it was important to take into consideration what variables we would know prior to the time of a hypothetical power outage, or the model wouldn't necessarily be helpful from a logistical standpoint.
 
@@ -304,7 +306,7 @@ Our baseline model is a binary classifier using a **RandomForest** that consists
 
 `PCT_WATER_TOT` states the percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. Higher values may equate to increased hydropower availability.
 
-Our initial model had an R<sup>2</sup> of 0.76 on the training set and **0.73** on the test set. 
+Our initial model had an R<sup>2</sup> of 0.76 on the training set and **0.73** on the test set. For a baseline model, this was a better score than we had expected, but I think the fact that we only used a few features makes us believe we can definitely improve the model.
 
 <br>
 
