@@ -222,7 +222,7 @@ When building our model, it was important to take into consideration what variab
 
 # Baseline Model
 
-Our baseline model is a binary classifier that consists of the features `NERC.REGION`, `PC.REALGSP.STATE`, and `PCT_WATER_TOT`. We used a random forest and used GridSearchCV to help identify the best parameters, which were a `max_depth` of 8, `min_samples_split` of 15, and `n_estimators` of 100. The predicted column consisted of 1s if the predicted outage would be severe, and 0 if the predicted outage would not be severe. Initially, we used a DecisionTreeClassifier but realized that it would not be as successful as a RandomForestClassifier. 
+Our baseline model is a binary classifier using a **RandomForest** that consists of the features `NERC.REGION`, `PC.REALGSP.STATE`, and `PCT_WATER_TOT`. We used a random forest and used GridSearchCV to help identify the best parameters, which were a `max_depth` of 8, `min_samples_split` of 15, and `n_estimators` of 100. The predicted column consisted of 1s if the predicted outage would be severe, and 0 if the predicted outage would not be severe. Initially, we used a DecisionTreeClassifier but realized that it would not be as successful as a RandomForestClassifier. 
 
 `NERC.REGION`indicates the North American Electric Reliability Corporation regions involved in the outage event, which we thought would be useful due to different regions having different implementations of energy infrastructures. We one-hot encoded this column, which had 8 unique values in it.
 
@@ -238,6 +238,19 @@ Our initial model had an R<sup>2</sup> of 0.76 on the training set and **0.73** 
 
 # Final Model
 
+Our final model still used a **RandomForest** with a few more added features, whilst removing the `PCT_WATER_TOT` column:
+
+`Daypart`states the time of day based on the table in the Data Cleaning section. Outages that happen at night or evening may take longer to fix due to smaller number of people taking action against power outages.
+
+`ANOMALY.LEVEL` represents the oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season, which may impact the duration of a power outage due to extreme weather tendencies. 
+
+`CLIMATE.CATEGORY` represents the climate episodes corresponding to the years as either “warm,” “cold,” or “normal,” which like anomaly level may add the impacts of the climate as a predictor. 
+
+`DEMAND.LOSS.MW` states the amount of peak demand lost during an outage event (in Megawatt). Higher values may correspond to longer and more severe outages 
+
+Our hyperparamters for the final model using GridSearchCV were a `max_depth` of 10, a `min_samples_split` of 7, and an `n_estimators` value of 65.
+
+Our final model had an R<sup>2</sup> of 0.89 on the training set and **0.78** on the test set, which was a 5% increase from our baseline model. 
 
 ---
 
