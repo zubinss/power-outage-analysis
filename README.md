@@ -8,8 +8,28 @@ Understanding whether a power outage is likely to become severe is crucial for e
 
 **What patterns can be identified in the timing and duration of severe power outages?**
 
-The original DataFrame contains 1534 rows, corresponding to 1534 outages, and 57 columns with statistics about each outage. For the sake of our analysis, we will only use the following ___ columns in our analysis:
+The original DataFrame contains 1534 rows, corresponding to 1534 outages, and 57 columns with statistics about each outage. For the sake of our analysis, we will only use the following 17 columns in our analysis:
 
+
+| Column Name           | Description         |
+|-----------------------|---------------------|
+| U.S._STATE            | The name of the US State the outage took place in.                    |
+| NERC.REGION           | North American Electric Reliability Corporation (NERC) regions involved in the outage event.                    |
+| CLIMATE.REGION        | US climate regions that are defined by the National Centers for Environmental Information                    |
+| ANOMALY.LEVEL         | The oceanic El Niño/La Niña (ONI) index referring to the cold and warm episodes by season                    |
+| OUTAGE.START          | The exact start date and time of the outage.                    |
+| OUTAGE.RESTORATION    | The exact restoration date and time of the outage.                    |
+| OUTAGE.DURATION       | The exact length of time of the outage.                    |
+| CUSTOMERS.AFFECTED    | The amount of customers reported to be affected by the outage.                    |
+| PC.REALGSP.STATE      | The per capita real gross state product (GSP) in the U.S. state (in 2009 US Dollars)                    |
+| PCT_WATER_TOT         | The percentage of water area in the US state as compared to the overall water area in the continental U.S.             |
+| CLIMATE.CATEGORY      | The climate episodes corresponding to the years. The categories—“Warm”, “Cold” or “Normal” episodes of the climate are based on a threshold of ± 0.5 °C for ONI                    |
+| DEMAND.LOSS.MW        | Amount of peak demand lost during an outage event (in Megawatt)                    |
+| POPULATION            | Population in the U.S. state in a year                    |
+| Hour                  | The hour of the day that the outage took place in                    |
+| Daypart               | The part of the day that the outage took place in                    |
+| is_day                | Whether or not the outage took place during the day                    |
+| is_severe             | Whether or not the outage is severe (defined by if the outage lasted for more than 24 hours)                    |
 
 
 # Data Cleaning and Exploratory Data Analysis
@@ -33,6 +53,11 @@ In addition, we created the `is_day` and `Daypart` columns. `is_day` is a boolea
 | Afternoon     | 12:00 pm - 4:59 pm    | 
 | Evening       | 5:00 pm - 8:59 pm     | 
 | Night         | 9:00 pm - 4:59 am     | 
+
+There are a lot of columns in the dataset. To get only the ones necessary for our data analysis, we dropped all the columns except for `U.S._STATE`, `NERC.REGION`, `CLIMATE.REGION`, `ANOMALY.LEVEL`, `OUTAGE.START`, `OUTAGE.RESTORATION`, `OUTAGE.DURATION`, `CUSTOMERS.AFFECTED`, `PC.REALGSP.STATE`, `PCT_WATER_TOT`, `CLIMATE.CATEGORY`, `DEMAND.LOSS.MW`, `POPULATION`, `Hour`, `Daypart`, `is_day`, and `is_severe`.
+
+Below is the head of our filtered table of data that we used for the rest of this project:
+
 
 ---
 
