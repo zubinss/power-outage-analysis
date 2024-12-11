@@ -32,6 +32,11 @@ The original DataFrame contains 1534 rows, corresponding to 1534 outages, and 57
 | is_severe             | Whether or not the outage is severe (defined by if the outage lasted for more than 24 hours)                    |
 
 
+
+---
+
+
+
 # Data Cleaning and Exploratory Data Analysis
 
 ## Data Cleaning
@@ -69,7 +74,6 @@ Below is the head of our filtered table of data that we used for the rest of thi
 
 
 
----
 
 ## Univariate Analysis
 
@@ -92,6 +96,8 @@ In this plot we are looking at the distribution of the probability of outage dur
 
 In this plot we see the breakdown of the distribution of outages by NERC Region. The NERC Region is the North American Electric Reliability Corporation region involved in the outage event. The NERC Region with the highest amount of outages is WECC and RFC, which both have over 400 incidents.
 
+
+
 ### All NERC Regions and Their Outage Counts
 
 | Acronym       | Full Name                                    | Count |
@@ -110,6 +116,7 @@ In this plot we see the breakdown of the distribution of outages by NERC Region.
 | HI            | Hawaii Region                               | 1     |
 | PR            | Puerto Rico                                 | 1     |
 | ASCC          | Alaska Systems Coordinating Council         | 1     |
+
 
 
 ## Bivariate Analysis
@@ -138,7 +145,11 @@ Here we can see the outage duration vs the number of customers affected by the o
 
 Here we are seeing a pivot table of the average length of outages split across whether the part of the day was morning, afternoon, evening, or night. We can see that the longest durations are on average during the morning and very closely after at night. If we were to look at these by whether or not it is daytime or nighttime, we get that daytime is ~4981.26 minutes long on average and nighttime is ~5772.05 minutes long on average. Although on their own morning and night are the two longest, if we look at daytime and nighttime, nighttime has a much longer average duration. This may be due to power going out at night when many people are using it and overloading the grid. 
 
+
+
 ---
+
+
 
 # Assessment of Missingness
 
@@ -150,9 +161,11 @@ In this way, the missing values in `CUSTOMERS.AFFECTED` may be dependent on the 
 If we had data on the amount of media coverage the outage got, we may be able to predict the missingness of the amount of customers affected. This would make the missingness Missing At Random (`MAR`), where the missingness can be predicted or is based on another column. If there wasn’t much media coverage for the outage we are looking for, we could more accurately predict that the value would be missing in the `CUSTOMERS.AFFECTED` column.
 
 
+
 ## Missingness Dependency
 
 We will looking into and analyzing the `OUTAGE.DURATION` column
+
 
 ### 1. Missingness Dependency on Climate Regions.
 Null Hypothesis: The missingness of the amount of customers affected is the same across all climate regions.
@@ -191,6 +204,7 @@ There seems to be a noticeable difference between categories and missingness. We
 
 During testing, we found an observed test statistic of `0.28`, which has a p-value of `0.0`. It is far beyond the distribution of climate regions, showing that we reject the null hypothesis. We conclude that there is evidence to suggest that the missingness of missingness of customer amounts differs across climate regions. 
 
+
 ### 2. Missingness Dependency on the Part of Day
 
 We now look to see if the missingness of the customers affected is dependent on the part of the day. The parts of the day we are splitting the data up into is Morning, Afternoon, Evening, and Night.
@@ -218,6 +232,7 @@ We can see here that the distributions of missingness seem much more even based 
 In our testing, we find now that there is an observed test statistic of `0.18`, which has a p-value of `0.272`. This p-value is not lower than our significance level of `0.05`, so we fail to reject the null hypothesis. We do not have enough evidence to conclude that there is a relationship between the dependency of the missingness of the amount of customers affected and the part of the day.
 
 
+
 ---
 
 
@@ -241,7 +256,9 @@ We performed a permutation Test with 10,000 iterations at the 0.05 significance 
 **P-value**: 0.0068. With our 0.05 significance level, we reject the null hypothesis. We have enough evidence to justify that the difference in people affected during the nighttime and daytime was statistically significant, and not solely due to random chance.
 
 
+
 ---
+
 
 
 # Framing a Prediction Problem
@@ -252,7 +269,10 @@ For our model, our response variable is the `OUTAGE.DURATION` column, which is t
 
 When building our model, it was important to take into consideration what variables we would know prior to the time of a hypothetical power outage, or the model wouldn't necessarily be helpful from a logistical standpoint.
 
+
+
 ---
+
 
 
 # Baseline Model
@@ -268,7 +288,9 @@ Our baseline model is a binary classifier using a **RandomForest** that consists
 Our initial model had an R<sup>2</sup> of 0.76 on the training set and **0.73** on the test set. 
 
 
+
 ---
+
 
 
 # Final Model
@@ -287,7 +309,10 @@ Our hyperparamters for the final model using GridSearchCV were a `max_depth` of 
 
 Our final model had an R<sup>2</sup> of 0.89 on the training set and **0.78** on the test set, which was a 5% increase from our baseline model. 
 
+
+
 ---
+
 
 
 # Fairness Analysis
