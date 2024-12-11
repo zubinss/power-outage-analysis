@@ -59,6 +59,16 @@ There are a lot of columns in the dataset. To get only the ones necessary for ou
 Below is the head of our filtered table of data that we used for the rest of this project:
 
 
+| U.S._STATE   | NERC.REGION   | CLIMATE.REGION     |   ANOMALY.LEVEL | OUTAGE.START        | OUTAGE.RESTORATION   |   OUTAGE.DURATION |   CUSTOMERS.AFFECTED |   PC.REALGSP.STATE |   PCT_WATER_TOT | CLIMATE.CATEGORY   |   DEMAND.LOSS.MW |   Hour | Daypart   | is_day   |   is_severe |   POPULATION |
+|:-------------|:--------------|:-------------------|----------------:|:--------------------|:---------------------|------------------:|---------------------:|-------------------:|----------------:|:-------------------|-----------------:|-------:|:----------|:---------|------------:|-------------:|
+| Minnesota    | MRO           | East North Central |            -0.3 | 2011-07-01 17:00:00 | 2011-07-03 20:00:00  |              3060 |                70000 |              51268 |         8.40733 | normal             |              nan |     17 | Evening   | False    |           1 |      5348119 |
+| Minnesota    | MRO           | East North Central |            -0.1 | 2014-05-11 18:38:00 | 2014-05-11 18:39:00  |                 1 |                  nan |              53499 |         8.40733 | normal             |              nan |     18 | Evening   | False    |           0 |      5457125 |
+| Minnesota    | MRO           | East North Central |            -1.5 | 2010-10-26 20:00:00 | 2010-10-28 22:00:00  |              3000 |                70000 |              50447 |         8.40733 | cold               |              nan |     20 | Evening   | False    |           1 |      5310903 |
+| Minnesota    | MRO           | East North Central |            -0.1 | 2012-06-19 04:30:00 | 2012-06-20 23:00:00  |              2550 |                68200 |              51598 |         8.40733 | normal             |              nan |      4 | Night     | False    |           1 |      5380443 |
+| Minnesota    | MRO           | East North Central |             1.2 | 2015-07-18 02:00:00 | 2015-07-19 07:00:00  |              1740 |               250000 |              54431 |         8.40733 | warm               |              250 |      2 | Night     | False    |           1 |      5489594 |
+
+
+
 ---
 
 ## Univariate Analysis
@@ -282,7 +292,12 @@ Our final model had an R<sup>2</sup> of 0.89 on the training set and **0.78** on
 
 # Fairness Analysis
 
-
+<iframe
+  src="assets/fig_final.html"
+  width="800"
+  height="600"
+  frameborder="0"
+></iframe>
 
 
 
