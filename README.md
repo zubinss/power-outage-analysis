@@ -298,15 +298,15 @@ When building our model, it was important to take into consideration what variab
 
 # Baseline Model
 
-Our baseline model is a binary classifier using a **RandomForest** that consists of the features `NERC.REGION`, `PC.REALGSP.STATE`, and `PCT_WATER_TOT`. We used a random forest and used GridSearchCV to help identify the best parameters, which were a `max_depth` of 8, `min_samples_split` of 15, and `n_estimators` of 100. The predicted column consisted of 1s if the predicted outage would be severe, and 0 if the predicted outage would not be severe. Initially, we used a DecisionTreeClassifier but realized that it would not be as successful as a RandomForestClassifier. 
+Our baseline model is a binary classifier using a **RandomForest** that consists of the features `NERC.REGION` (categorical), `PC.REALGSP.STATE` (quantitative), and `PCT_WATER_TOT` (quantitative). We used a random forest and used GridSearchCV to help identify the best parameters, which were a `max_depth` of 8, `min_samples_split` of 15, and `n_estimators` of 100. The predicted column consisted of 1s if the predicted outage would be severe, and 0 if the predicted outage would not be severe. Initially, we used a DecisionTreeClassifier but realized that it would not be as successful as a RandomForestClassifier. 
 
-`NERC.REGION` indicates the North American Electric Reliability Corporation regions involved in the outage event, which we thought would be useful due to different regions having different implementations of energy infrastructures. We one-hot encoded this column, which had 8 unique values in it.
+`NERC.REGION` indicates the North American Electric Reliability Corporation regions involved in the outage event, which we thought would be useful due to different regions having different implementations of energy infrastructures. We one-hot encoded this column, which had 8 unique values in it. `NERC.REGION` was One-Hot Encoded for this model.
 
-`PC.REALGSP.STATE` identifies per capita real gross state product (GSP) in the U.S. state the outage took place in. Higher values may correspond to larger investments into energy infrastructure and protection against intentional power outage attacks.
+`PC.REALGSP.STATE` identifies per capita real gross state product (GSP) in the U.S. state the outage took place in. Higher values may correspond to larger investments into energy infrastructure and protection against intentional power outage attacks. `PC.REALGSP.STATE` was transformed using a StandardScaler.
 
-`PCT_WATER_TOT` states the percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. Higher values may equate to increased hydropower availability.
+`PCT_WATER_TOT` states the percentage of water area in the U.S. state as compared to the overall water area in the continental U.S. Higher values may equate to increased hydropower availability. `PCT_WATER_TOT` was transformed using a StandardScaler.
 
-Our initial model had an R<sup>2</sup> of 0.76 on the training set and **0.73** on the test set. For a baseline model, this was a better score than we had expected, but I think the fact that we only used a few features makes us believe we can definitely improve the model.
+Our initial model had an R<sup>2</sup> of 0.76 on the training set and **0.73** on the test set. For a baseline model, this was a better score than we had expected, but we think the fact that we only used a few features makes us believe we can definitely improve the model.
 
 <br>
 
@@ -328,7 +328,7 @@ Our final model still used a **RandomForest** with a few more added features, wh
 
 Our hyperparamters for the final model using GridSearchCV were a `max_depth` of 10, a `min_samples_split` of 7, and an `n_estimators` value of 65.
 
-Our final model had an R<sup>2</sup> of 0.89 on the training set and **0.78** on the test set, which was a 5% increase from our baseline model. 
+Our final model had an R<sup>2</sup> of 0.89 on the training set and **0.78** on the test set, which was a 5% increase from our baseline model. This boost shows a higher generalization to unseen data, with hyperparameter tuning that further optimizes the model’s ability to capture complex patterns without overfitting.
 
 <br>
 
